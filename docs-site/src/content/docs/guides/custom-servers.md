@@ -29,7 +29,7 @@ have configured authentication and a secure network path.
 4. Add it to kunji:
 
    ```bash
-   kunji providers add lmstudio --base-url http://localhost:1234/v1 --no-key --name "LM Studio"
+   kunji providers add lmstudio --base-url http://127.0.0.1:1234/v1 --no-key --name "LM Studio"
    kunji chat -m lmstudio:<model-id>
    ```
 
@@ -49,14 +49,14 @@ Replace `<model>` with a model name or local model path supported by your vLLM i
 Then register the server with kunji:
 
 ```bash
-kunji providers add vllm --base-url http://localhost:8000/v1 --no-key --name "vLLM"
+kunji providers add vllm --base-url http://127.0.0.1:8000/v1 --no-key --name "vLLM"
 kunji chat -m vllm:<model-id>
 ```
 
 When vLLM is started with `--api-key`, omit `--no-key` and add the key locally:
 
 ```bash
-kunji providers add vllm --base-url http://localhost:8000/v1 --name "vLLM"
+kunji providers add vllm --base-url http://127.0.0.1:8000/v1 --name "vLLM"
 kunji keys add vllm
 ```
 
@@ -74,7 +74,7 @@ llama-server -m /path/to/model.gguf --host 127.0.0.1 --port 8080
 In another terminal, register it with kunji:
 
 ```bash
-kunji providers add llamacpp --base-url http://localhost:8080/v1 --no-key --name "llama.cpp"
+kunji providers add llamacpp --base-url http://127.0.0.1:8080/v1 --no-key --name "llama.cpp"
 kunji chat -m llamacpp:<model-id>
 ```
 
@@ -104,7 +104,7 @@ the public internet.
 Use the same pattern for LiteLLM or another OpenAI-compatible server:
 
 ```bash
-kunji providers add <id> --base-url http://localhost:<port>/v1 --no-key --name "My server"
+kunji providers add <id> --base-url http://127.0.0.1:<port>/v1 --no-key --name "My server"
 kunji chat -m <id>:<model-id>
 ```
 
