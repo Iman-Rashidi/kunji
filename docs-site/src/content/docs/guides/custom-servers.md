@@ -9,7 +9,8 @@ Any server that implements the OpenAI chat-completions API can work with kunji. 
 shows how to start three popular local servers and register them with kunji.
 
 The examples use local-only addresses. Keep the server bound to your own machine unless you
-have configured authentication and a secure network path.
+have configured authentication and a secure network path. Replace angle-bracket placeholders
+such as `<model>` before running a command; they are not literal values.
 
 ## LM Studio
 
@@ -62,6 +63,11 @@ kunji keys add vllm
 
 Use the model identifier returned by the server in `kunji chat`. See the
 [vLLM CLI guide](https://docs.vllm.ai/en/latest/cli/).
+
+**Security note:** vLLM's `--api-key` protects the documented OpenAI-compatible API path
+prefixes, not every endpoint on the server. Keep this example bound to loopback. For remote
+access, put vLLM behind a reverse proxy that restricts exposed endpoints and follow the
+[vLLM security guidance](https://docs.vllm.ai/en/latest/usage/security/).
 
 ## llama.cpp server
 
